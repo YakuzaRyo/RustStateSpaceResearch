@@ -3,6 +3,7 @@
   "direction_name": "对比分析",
   "priority": 6,
   "status": "pending",
+  "priority_rationale": "分析现有AI编程工具的缺陷，为研究方向提供改进参考，辅助性工作优先级最低",
   "question": "Claude Code/OpenCode的根本缺陷是什么?",
   "topics": ["AI编程工具", "缺陷分析", "改进方向"],
   "hypotheses": [],

@@ -3,6 +3,7 @@
   "direction_name": "工具设计",
   "priority": 3,
   "status": "pending",
+  "priority_rationale": "基于02实现技术的成果，设计'无法产生错误'的工具，直接验证核心问题的实践可行性",
   "question": "如何设计'无法产生错误'的工具?",
   "topics": ["类型安全", "编译时检查", "运行时安全"],
   "hypotheses": [],
