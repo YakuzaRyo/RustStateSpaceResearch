@@ -1,9 +1,9 @@
 {
   "id": "05",
   "direction_name": "分层设计",
-  "priority": 5,
+  "priority": 4,
   "status": "pending",
-  "priority_rationale": "定义从语法到语义的抽象层次转换，为整个研究提供架构指导，影响其他方向的设计决策",
+  "priority_rationale": "定义从语法到语义的抽象层次转换，为整个研究提供架构指导，影响其他方向的设计决策，是核心基础设施",
   "question": "Syntax→Semantic→Pattern→Domain如何转换?",
   "topics": ["抽象层次", "语义映射", "领域特定语言"],
   "hypotheses": [],
