@@ -2,9 +2,8 @@
 # Research Scheduler - 定时任务脚本
 # 每 20 分钟运行一轮研究
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
-
+# 使用绝对路径，确保 cron 环境下正常工作
+PROJECT_DIR="/home/ume/RustStateSpaceResearch"
 cd "$PROJECT_DIR"
 
 # 日志文件

@@ -93,6 +93,7 @@
   ],
   "current_direction_id": "01",
   "current_step": "step1_priority",
+  "step1_completed": true,
   "context_usage": {
     "step1": 0,
     "step2": 0,
