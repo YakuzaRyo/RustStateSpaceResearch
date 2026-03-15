@@ -2,6 +2,13 @@
 // A Rust-based framework for type-safe state space representation
 // Core principle: Make errors impossible by design through invariant constraints
 
+// 分层设计模块 - Layered Design
+pub mod syntax;
+pub mod semantic;
+pub mod pattern;
+pub mod domain;
+pub mod layered;
+
 pub mod invariant {
     /// Invariant trait - defines properties that must hold throughout state lifecycle
     pub trait Invariant: Clone {
