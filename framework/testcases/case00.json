@@ -1,0 +1,7 @@
+{
+  "id": "case00",
+  "name": "状态转换测试",
+  "input": { "state": "initial" },
+  "expected_output": { "state": "valid" },
+  "validation": "state == valid"
+}

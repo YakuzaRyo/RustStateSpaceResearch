@@ -1,0 +1,19 @@
+{
+  "id": "03",
+  "direction_name": "工具设计",
+  "priority": 3,
+  "status": "pending",
+  "question": "如何设计'无法产生错误'的工具?",
+  "topics": ["类型安全", "编译时检查", "运行时安全"],
+  "hypotheses": [],
+  "verified_count": 0,
+  "literature": [],
+  "literature_count": 0,
+  "literature_increment": 0,
+  "last_literature_increment": 0,
+  "literature_score": 30,
+  "code_features": [],
+  "test_results": [],
+  "context_usage": 0,
+  "total_score": 0
+}

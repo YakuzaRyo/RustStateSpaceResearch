@@ -1,0 +1,103 @@
+{
+  "research_directions": [
+    {
+      "id": "01",
+      "direction_name": "核心原则",
+      "priority": 1,
+      "status": "pending",
+      "question": "如何让错误在设计上不可能发生?",
+      "file": "directions/01_core_principles.json",
+      "topics": ["状态空间代数结构", "类型理论", "不变量形式化"],
+      "hypotheses": [],
+      "verified_count": 0,
+      "literature_count": 0,
+      "literature_increment": 0,
+      "last_literature_increment": 0,
+      "literature_score": 30
+    },
+    {
+      "id": "02",
+      "direction_name": "实现技术",
+      "priority": 2,
+      "status": "pending",
+      "question": "如何用Rust类型系统实现状态空间?",
+      "file": "directions/02_implementation.json",
+      "topics": ["Rust类型系统", "状态机", "类型状态模式"],
+      "hypotheses": [],
+      "verified_count": 0,
+      "literature_count": 0,
+      "literature_increment": 0,
+      "last_literature_increment": 0,
+      "literature_score": 30
+    },
+    {
+      "id": "03",
+      "direction_name": "工具设计",
+      "priority": 3,
+      "status": "pending",
+      "question": "如何设计'无法产生错误'的工具?",
+      "file": "directions/03_tool_design.json",
+      "topics": ["类型安全", "编译时检查", "运行时安全"],
+      "hypotheses": [],
+      "verified_count": 0,
+      "literature_count": 0,
+      "literature_increment": 0,
+      "last_literature_increment": 0,
+      "literature_score": 30
+    },
+    {
+      "id": "04",
+      "direction_name": "LLM导航器",
+      "priority": 4,
+      "status": "pending",
+      "question": "LLM作为启发式函数的理论基础?",
+      "file": "directions/04_llm_navigator.json",
+      "topics": ["启发式搜索", "LLM推理", "状态评估"],
+      "hypotheses": [],
+      "verified_count": 0,
+      "literature_count": 0,
+      "literature_increment": 0,
+      "last_literature_increment": 0,
+      "literature_score": 30
+    },
+    {
+      "id": "05",
+      "direction_name": "分层设计",
+      "priority": 5,
+      "status": "pending",
+      "question": "Syntax→Semantic→Pattern→Domain如何转换?",
+      "file": "directions/05_layered_design.json",
+      "topics": ["抽象层次", "语义映射", "领域特定语言"],
+      "hypotheses": [],
+      "verified_count": 0,
+      "literature_count": 0,
+      "literature_increment": 0,
+      "last_literature_increment": 0,
+      "literature_score": 30
+    },
+    {
+      "id": "06",
+      "direction_name": "对比分析",
+      "priority": 6,
+      "status": "pending",
+      "question": "Claude Code/OpenCode的根本缺陷是什么?",
+      "file": "directions/06_comparative_analysis.json",
+      "topics": ["AI编程工具", "缺陷分析", "改进方向"],
+      "hypotheses": [],
+      "verified_count": 0,
+      "literature_count": 0,
+      "literature_increment": 0,
+      "last_literature_increment": 0,
+      "literature_score": 30
+    }
+  ],
+  "current_direction_id": "01",
+  "current_step": "step1_priority",
+  "context_usage": {
+    "step1": 0,
+    "step2": 0,
+    "step3": 0,
+    "step4": 0,
+    "step5": 0
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "id": "05",
+  "direction_name": "分层设计",
+  "priority": 5,
+  "status": "pending",
+  "question": "Syntax→Semantic→Pattern→Domain如何转换?",
+  "topics": ["抽象层次", "语义映射", "领域特定语言"],
+  "hypotheses": [],
+  "verified_count": 0,
+  "literature": [],
+  "literature_count": 0,
+  "literature_increment": 0,
+  "last_literature_increment": 0,
+  "literature_score": 30,
+  "code_features": [],
+  "test_results": [],
+  "context_usage": 0,
+  "total_score": 0
+}

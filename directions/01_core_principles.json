@@ -1,0 +1,19 @@
+{
+  "id": "01",
+  "direction_name": "核心原则",
+  "priority": 1,
+  "status": "pending",
+  "question": "如何让错误在设计上不可能发生?",
+  "topics": ["状态空间代数结构", "类型理论", "不变量形式化"],
+  "hypotheses": [],
+  "verified_count": 0,
+  "literature": [],
+  "literature_count": 0,
+  "literature_increment": 0,
+  "last_literature_increment": 0,
+  "literature_score": 30,
+  "code_features": [],
+  "test_results": [],
+  "context_usage": 0,
+  "total_score": 0
+}

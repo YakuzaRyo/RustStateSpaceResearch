@@ -1,0 +1,19 @@
+{
+  "id": "02",
+  "direction_name": "实现技术",
+  "priority": 2,
+  "status": "pending",
+  "question": "如何用Rust类型系统实现状态空间?",
+  "topics": ["Rust类型系统", "状态机", "类型状态模式"],
+  "hypotheses": [],
+  "verified_count": 0,
+  "literature": [],
+  "literature_count": 0,
+  "literature_increment": 0,
+  "last_literature_increment": 0,
+  "literature_score": 30,
+  "code_features": [],
+  "test_results": [],
+  "context_usage": 0,
+  "total_score": 0
+}

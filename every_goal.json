@@ -1,0 +1,29 @@
+{
+  "title": "状态空间架构研究",
+  "goal": "通过Rust类型系统强制定义边界，让AI产出遵循预定义规范",
+  "metrics": {
+    "total": 250,
+    "priority": 10,
+    "literature": 30,
+    "hypotheses": 10,
+    "verified": 20,
+    "code": 180,
+    "framework": 30,
+    "features": 50,
+    "tests": 50,
+    "context": 50
+  },
+  "research_flow": [
+    "step1_priority",
+    "step2_literature",
+    "step3_hypotheses",
+    "step4_verified",
+    "step5_code"
+  ],
+  "code_substeps": [
+    "5.1_framework",
+    "5.2_features",
+    "5.3_tests",
+    "5.4_context"
+  ]
+}

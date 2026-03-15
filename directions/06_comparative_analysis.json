@@ -1,0 +1,19 @@
+{
+  "id": "06",
+  "direction_name": "对比分析",
+  "priority": 6,
+  "status": "pending",
+  "question": "Claude Code/OpenCode的根本缺陷是什么?",
+  "topics": ["AI编程工具", "缺陷分析", "改进方向"],
+  "hypotheses": [],
+  "verified_count": 0,
+  "literature": [],
+  "literature_count": 0,
+  "literature_increment": 0,
+  "last_literature_increment": 0,
+  "literature_score": 30,
+  "code_features": [],
+  "test_results": [],
+  "context_usage": 0,
+  "total_score": 0
+}
