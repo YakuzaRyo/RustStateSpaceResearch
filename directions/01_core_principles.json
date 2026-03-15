@@ -185,6 +185,8 @@
   "context_usage": 0,
   "total_score": 0,
   "current_step": "step1_priority",
+  "step1_completed": true,
+  "priority_completed": true,
   "priority_analysis": {
     "01_核心原则": {
       "priority": 1,
