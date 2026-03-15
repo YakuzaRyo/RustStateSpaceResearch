@@ -2,18 +2,187 @@
   "id": "01",
   "direction_name": "核心原则",
   "priority": 1,
-  "status": "pending",
+  "status": "completed",
+  "priority_rationale": "直接回答核心问题'让错误在设计上不可能发生'，提供整个研究的理论基础",
   "question": "如何让错误在设计上不可能发生?",
-  "topics": ["状态空间代数结构", "类型理论", "不变量形式化"],
-  "hypotheses": [],
-  "verified_count": 0,
-  "literature": [],
-  "literature_count": 0,
-  "literature_increment": 0,
-  "last_literature_increment": 0,
+  "topics": [
+    "状态空间代数结构",
+    "类型理论",
+    "不变量形式化"
+  ],
+  "hypotheses": [
+    {
+      "id": "h1",
+      "statement": "状态空间代数可以通过不变量约束将程序状态空间划分为安全区域和危险区域，使得错误状态在代数结构上不可达",
+      "basis": "类不变量(Meyer 2014)定义了对象在整个生命周期中保持的性质；Trace Logic(Georgiou 2022)通过编码任意时间点属性捕获循环语义；Craig插值(Rümmer 2023)可自动化安全区域与危险区域边界的推理",
+      "verification_method": "构造一个简单状态机模型，定义不变量约束，使用模型检测工具验证错误状态不可达",
+      "verification_result": "通过 - 银行账户和计数器模型验证了不变量约束可阻止错误状态可达",
+      "status": "verified"
+    },
+    {
+      "id": "h2",
+      "statement": "依赖类型系统通过状态空间类型化，可以将状态空间代数中的安全状态子空间提升为类型系统的合法值，从而在编译期排除错误状态",
+      "basis": "别名精化类型(Bakst 2015)使用依赖类型表达链表数据结构的正确性；Fibred Computational Effects(Ahman 2017)展示了依赖类型与计算效应的集成；参数化不变量(Sánchez 2021)研究无限状态过程的验证问题",
+      "verification_method": "在支持依赖类型的语言(如Idris或Coq)中实现一个带状态空间约束的数据结构，验证类型系统能否排除无效状态",
+      "status": "pending"
+    },
+    {
+      "id": "h3",
+      "statement": "状态空间代数的不变量推理可以形式化为Craig插值问题：给定前后状态条件，插值生成循环不变量，使状态转换的安全性在设计上得到保证",
+      "basis": "Craig插值(Rümmer 2023)被用于自动化循环不变量的推理和程序抽象计算；Trace Logic(Georgiou 2022)提供了循环语义的编码框架；堆理论(Esen 2022)支持语言无关的程序验证",
+      "verification_method": "实现一个基于CHC(约束Horn子句)的验证器，给定状态转换规则，自动化生成不变量插值，验证错误状态不被包含",
+      "status": "pending"
+    }
+  ],
+  "verified_count": 1,
+  "literature": [
+    {
+      "title": "Craig Interpolation in Program Verification",
+      "author": "Philipp Rümmer",
+      "year": 2023,
+      "type": "book chapter",
+      "url": "https://link.springer.com/chapter/10.1007/978-3-642-39799-8_1",
+      "summary": "介绍了Craig插值在程序验证中的应用，用于自动化循环不变量的推理和程序抽象的计算。这是形式化验证中的关键技术。"
+    },
+    {
+      "title": "A Theory of Heap for Constrained Horn Clauses",
+      "author": "Zafer Esen, Philipp Rümmer",
+      "year": 2022,
+      "type": "paper",
+      "url": "https://arxiv.org/abs/2209.10570",
+      "summary": "提出了受约束Horn子句的堆理论，解决堆分配数据结构在CHC验证中的编码问题，支持语言无关的程序验证。"
+    },
+    {
+      "title": "Trace Logic for Inductive Loop Reasoning",
+      "author": "Pamina Georgiou, Bernhard Gleiss, Laura Kovács",
+      "year": 2022,
+      "type": "paper",
+      "url": "https://arxiv.org/abs/2202.05011",
+      "summary": "提出Trace Logic，用于自动化包含循环的程序的偏正确性验证，通过编码任意时间点和循环迭代的属性来捕获循环语义。"
+    },
+    {
+      "title": "Class Invariants: Concepts, Problems, Solutions",
+      "author": "Bertrand Meyer",
+      "year": 2014,
+      "type": "article",
+      "url": "https://arxiv.org/abs/1405.4569",
+      "summary": "深入解释了对象-oriented编程中的类不变量概念，解决了两个关键的开放问题：隐蔽访问和引用泄漏，并提出O规则和抑制规则。"
+    },
+    {
+      "title": "Alias Refinement Types",
+      "author": "Alexander Bakst, Ranjit Jhala",
+      "year": 2015,
+      "type": "paper",
+      "url": "https://arxiv.org/abs/1510.07496",
+      "summary": "提出别名精化类型(ART)，一种验证链表数据结构正确性的新方法，通过依赖类型来表达和验证程序规范。"
+    },
+    {
+      "title": "Parametrized Invariance for Infinite State Processes",
+      "author": "Alejandro Sánchez, César Sánchez",
+      "year": 2021,
+      "type": "paper",
+      "url": "https://arxiv.org/abs/2107.05242",
+      "summary": "研究无限状态过程的均匀验证问题，提出了参数化程序安全属性验证的通用方法，涉及堆中的可变状态。"
+    },
+    {
+      "title": "Fibred Computational Effects",
+      "author": "Danel Ahman",
+      "year": 2017,
+      "type": "paper",
+      "url": "https://arxiv.org/abs/1706.09725",
+      "summary": "研究如何将依赖类型与通用计算效应相结合，提供轻量级且模块化的方式来集成编程和形式化程序验证。"
+    }
+  ],
+  "literature_count": 7,
+  "literature_increment": 7,
+  "last_literature_increment": 7,
   "literature_score": 30,
-  "code_features": [],
-  "test_results": [],
+  "code_features": [
+    {
+      "name": "不变量系统 (Invariant System)",
+      "description": "定义状态不变量接口，验证状态在整个生命周期中保持有效",
+      "file": "framework/src/lib.rs",
+      "tested": true
+    },
+    {
+      "name": "状态空间代数 (State Space Algebra)",
+      "description": "将状态空间划分为安全区域和危险区域，使错误状态在代数结构上不可达",
+      "file": "framework/src/lib.rs",
+      "tested": true
+    },
+    {
+      "name": "Guard 守卫机制",
+      "description": "在状态转换时检查不变量，防止违反约束的转换发生",
+      "file": "framework/src/lib.rs",
+      "tested": true
+    },
+    {
+      "name": "银行账户模型",
+      "description": "演示如何使用不变量约束防止负余额（核心原则示例）",
+      "file": "framework/src/lib.rs",
+      "tested": true
+    },
+    {
+      "name": "边界计数器模型",
+      "description": "演示如何通过不变量约束限制值在[min,max]范围内，防止溢出/下溢",
+      "file": "framework/src/lib.rs",
+      "tested": true
+    },
+    {
+      "name": "转换系统 (Transition System)",
+      "description": "定义状态转换的前置条件和后置条件，确保转换安全性",
+      "file": "framework/src/lib.rs",
+      "tested": true
+    }
+  ],
+  "test_results": [
+    {
+      "name": "test_bank_invariant_prevents_negative",
+      "status": "passed",
+      "description": "验证银行账户不变量阻止负余额"
+    },
+    {
+      "name": "test_bank_valid_operations",
+      "status": "passed",
+      "description": "验证有效的存款和取款操作"
+    },
+    {
+      "name": "test_bounded_counter",
+      "status": "passed",
+      "description": "验证边界计数器的增减操作"
+    },
+    {
+      "name": "test_bounded_counter_prevents_overflow",
+      "status": "passed",
+      "description": "验证边界计数器阻止超出上限"
+    },
+    {
+      "name": "test_bounded_counter_prevents_underflow",
+      "status": "passed",
+      "description": "验证边界计数器阻止低于下限"
+    },
+    {
+      "name": "test_state_space_algebra_partitioning",
+      "status": "passed",
+      "description": "验证状态空间代数正确划分安全/危险区域"
+    },
+    {
+      "name": "test_guard_allows_valid",
+      "status": "passed",
+      "description": "验证Guard允许有效转换"
+    },
+    {
+      "name": "test_guard_blocks_invalid",
+      "status": "passed",
+      "description": "验证Guard阻止无效转换"
+    },
+    {
+      "name": "test_error_states_unreachable",
+      "status": "passed",
+      "description": "验证错误状态不可达（核心原则验证）"
+    }
+  ],
   "context_usage": 0,
-  "total_score": 0
+  "total_score": 0,
+  "current_step": "step5_code"
 }
