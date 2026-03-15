@@ -184,5 +184,31 @@
   ],
   "context_usage": 0,
   "total_score": 0,
-  "current_step": "step1_priority"
+  "current_step": "step1_priority",
+  "priority_analysis": {
+    "01_核心原则": {
+      "priority": 1,
+      "rationale": "直接回答核心问题'让错误在设计上不可能发生'，提供整个研究的理论基础"
+    },
+    "05_分层设计": {
+      "priority": 2,
+      "rationale": "Syntax→Semantic→Pattern→Domain转换层次是实现错误不可能发生的架构基础"
+    },
+    "02_实现技术": {
+      "priority": 3,
+      "rationale": "Rust类型系统是实现状态空间的具体技术手段"
+    },
+    "03_工具设计": {
+      "priority": 4,
+      "rationale": "确保工具本身不能产生错误，是研究落地的保障"
+    },
+    "04_LLM导航器": {
+      "priority": 5,
+      "rationale": "提供启发式搜索辅助，提高研究效率"
+    },
+    "06_对比分析": {
+      "priority": 6,
+      "rationale": "总结现有工具的缺陷，提供改进方向"
+    }
+  }
 }
