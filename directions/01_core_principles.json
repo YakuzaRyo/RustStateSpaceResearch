@@ -188,6 +188,44 @@
   "current_step": "step1_priority",
   "step2_completed": false,
   "priority_completed": true,
+  "step1_directions_ranking": [
+    {
+      "id": "01",
+      "name": "核心原则",
+      "priority": 1,
+      "rationale": "直接回答核心问题'让错误在设计上不可能发生'，提供理论基础，是所有其他方向的基石"
+    },
+    {
+      "id": "05",
+      "name": "分层设计",
+      "priority": 2,
+      "rationale": "Syntax→Semantic→Pattern→Domain转换层次是架构基础，影响其他方向的设计决策"
+    },
+    {
+      "id": "02",
+      "name": "实现技术",
+      "priority": 3,
+      "rationale": "Rust类型系统连接核心原则与实际应用，是验证理论可行性的关键步骤"
+    },
+    {
+      "id": "03",
+      "name": "工具设计",
+      "priority": 4,
+      "rationale": "基于实现技术设计工具，验证实践可行性"
+    },
+    {
+      "id": "04",
+      "name": "LLM导航器",
+      "priority": 5,
+      "rationale": "前沿探索，理论创新性强但不确定性较高"
+    },
+    {
+      "id": "06",
+      "name": "对比分析",
+      "priority": 6,
+      "rationale": "总结性工作，分析现有工具缺陷"
+    }
+  ],
   "priority_analysis": {
     "01_核心原则": {
       "priority": 1,
