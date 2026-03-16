@@ -2,7 +2,16 @@
   "id": "02",
   "direction_name": "实现技术",
   "priority": 3,
+  "current_step": "step1_priority",
   "step1_completed": true,
+  "priority_analysis": {
+    "01_核心原则": { "priority": 1, "rationale": "直接回答核心问题'让错误在设计上不可能发生'，提供整个研究的理论基础和核心假设" },
+    "05_分层设计": { "priority": 2, "rationale": "Syntax→Semantic→Pattern→Domain转换层次是实现错误不可能发生的架构基础" },
+    "02_实现技术": { "priority": 3, "rationale": "Rust类型系统是实现状态空间的具体技术手段，连接理论与实践" },
+    "03_工具设计": { "priority": 4, "rationale": "基于实现技术，设计确保自身不会产生错误的工具" },
+    "06_对比分析": { "priority": 5, "rationale": "分析现有AI编程工具的缺陷，提供改进参考" },
+    "04_LLM导航器": { "priority": 6, "rationale": "探索LLM作为启发式函数，理论创新性强但不确定性较高" }
+  },
   "status": "pending",
   "priority_rationale": "将01核心原则的理论成果转化为Rust实现，利用Rust类型系统实现状态空间代数，是连接理论与实践的关键桥梁",
   "question": "如何用Rust类型系统实现状态空间?",
