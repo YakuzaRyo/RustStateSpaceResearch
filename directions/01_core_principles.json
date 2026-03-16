@@ -189,13 +189,13 @@
   "step2_completed": false,
   "priority_completed": true,
   "priority_analysis": {
-    "05_分层设计": {
-      "priority": 1,
-      "rationale": "Syntax→Semantic→Pattern→Domain转换层次是实现错误不可能发生的架构基础，为整个研究提供架构指导，影响其他方向的设计决策"
-    },
     "01_核心原则": {
-      "priority": 2,
+      "priority": 1,
       "rationale": "直接回答核心问题'让错误在设计上不可能发生'，提供整个研究的理论基础和核心假设，是所有其他方向的基石"
+    },
+    "05_分层设计": {
+      "priority": 2,
+      "rationale": "Syntax→Semantic→Pattern→Domain转换层次是实现错误不可能发生的架构基础，为整个研究提供架构指导，影响其他方向的设计决策"
     },
     "02_实现技术": {
       "priority": 3,
