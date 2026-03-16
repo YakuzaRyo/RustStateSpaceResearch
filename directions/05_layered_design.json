@@ -2,7 +2,7 @@
   "id": "05",
   "direction_name": "分层设计",
   "priority": 2,
-  "step1_completed": true,
+  "step1_completed": false,
   "status": "in_progress",
   "priority_rationale": "定义从语法到语义的抽象层次转换，为整个研究提供架构指导，影响其他方向的设计决策，是核心基础设施",
   "question": "Syntax→Semantic→Pattern→Domain如何转换?",
