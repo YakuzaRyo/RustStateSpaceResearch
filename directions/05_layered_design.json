@@ -1,7 +1,7 @@
 {
   "id": "05",
   "direction_name": "分层设计",
-  "priority": 2,
+  "priority": 4,
   "step1_completed": true,
   "step1_priority_order": [
     1,
@@ -16,37 +16,37 @@
       "id": "01",
       "name": "核心原则",
       "priority": 1,
-      "rationale": "直接回答核心问题，提供理论基础"
-    },
-    {
-      "id": "05",
-      "name": "分层设计",
-      "priority": 2,
-      "rationale": "架构基础，影响所有方向"
+      "rationale": "直接回答核心问题，提供理论基础，是所有其他方向的基石"
     },
     {
       "id": "02",
       "name": "实现技术",
-      "priority": 3,
-      "rationale": "连接理论与实践"
+      "priority": 2,
+      "rationale": "Rust类型系统是具体技术手段，连接核心原则与实际应用"
     },
     {
       "id": "03",
       "name": "工具设计",
+      "priority": 3,
+      "rationale": "基于实现技术设计工具，验证实践可行性"
+    },
+    {
+      "id": "05",
+      "name": "分层设计",
       "priority": 4,
-      "rationale": "验证实践可行性"
+      "rationale": "Syntax→Semantic→Pattern→Domain转换层次是架构基础，在理解核心原则和实现技术后才有意义"
     },
     {
       "id": "04",
       "name": "LLM导航器",
       "priority": 5,
-      "rationale": "前沿探索，不确定性高"
+      "rationale": "前沿探索，理论创新性强但不确定性较高"
     },
     {
       "id": "06",
       "name": "对比分析",
       "priority": 6,
-      "rationale": "总结性工作"
+      "rationale": "总结性工作，分析现有工具缺陷"
     }
   ],
   "status": "in_progress",
@@ -250,17 +250,17 @@
       "priority": 1,
       "rationale": "直接回答核心问题'让错误在设计上不可能发生'，提供整个研究的理论基础和核心假设，是所有其他方向的基石"
     },
-    "05_分层设计": {
-      "priority": 2,
-      "rationale": "Syntax→Semantic→Pattern→Domain转换层次是实现错误不可能发生的架构基础，为整个研究提供架构指导，影响其他方向的设计决策"
-    },
     "02_实现技术": {
-      "priority": 3,
+      "priority": 2,
       "rationale": "Rust类型系统是实现状态空间的具体技术手段，连接核心原则理论与实际应用，是验证理论可行性的关键步骤"
     },
     "03_工具设计": {
-      "priority": 4,
+      "priority": 3,
       "rationale": "基于实现技术的成果，设计确保自身不会产生错误的工具，直接验证核心问题在实践中的可行性"
+    },
+    "05_分层设计": {
+      "priority": 4,
+      "rationale": "Syntax→Semantic→Pattern→Domain转换层次是实现错误不可能发生的架构基础，为整个研究提供架构指导，影响其他方向的设计决策"
     },
     "04_LLM导航器": {
       "priority": 5,
