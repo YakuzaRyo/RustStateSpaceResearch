@@ -15,12 +15,21 @@ class Evaluator:
     def __init__(self, project_dir: str):
         self.project_dir = Path(project_dir)
         self.plan_path = self.project_dir / "plan.json"
+        self.directions_dir = self.project_dir / "directions"
         self.every_goal_path = self.project_dir / "every_goal.json"
         self.results_path = self.project_dir / "results.tsv"
 
     def load_json(self, path: Path) -> Dict[str, Any]:
         with open(path, 'r', encoding='utf-8') as f:
             return json.load(f)
+
+    def load_direction_detail(self, direction_id: str) -> Dict[str, Any]:
+        """Load detailed direction data from directions/*.json file"""
+        # Find the direction file (e.g., 01_core_principles.json)
+        if self.directions_dir.exists():
+            for f in self.directions_dir.glob(f"{direction_id}_*.json"):
+                return self.load_json(f)
+        return {}
 
     def save_json(self, path: Path, data: Dict[str, Any]):
         with open(path, 'w', encoding='utf-8') as f:
@@ -58,39 +67,168 @@ class Evaluator:
 
     # Step 5.1: Framework scoring
     def score_framework(self) -> Dict[str, Any]:
+        """Score framework with refined 30-point system across 5 dimensions"""
         framework_dir = self.project_dir / "framework"
         score = 0
         details = {}
 
-        # Check cargo check
-        cargo_toml = framework_dir / "Cargo.toml"
+        # Dimension 1: Core trait definitions (6 points)
+        trait_score = 0
         lib_rs = framework_dir / "src" / "lib.rs"
-
-        if cargo_toml.exists():
-            score += 10
-            details['cargo_toml'] = True
         if lib_rs.exists():
-            score += 10
-            details['lib_rs'] = True
-
-        # Try cargo check
-        try:
-            result = subprocess.run(
-                ['cargo', 'check', '--manifest-path', str(framework_dir / 'Cargo.toml')],
-                capture_output=True,
-                text=True,
-                timeout=60
-            )
-            if result.returncode == 0:
-                score += 10
-                details['cargo_check'] = True
+            lib_content = lib_rs.read_text(encoding='utf-8')
+            # Check Invariant trait
+            if 'trait Invariant' in lib_content:
+                trait_score += 2
+                details['invariant_trait'] = True
             else:
-                details['cargo_check'] = False
-                details['cargo_error'] = result.stderr[:200]
-        except Exception as e:
-            details['cargo_check'] = False
-            details['cargo_error'] = str(e)
+                details['invariant_trait'] = False
+            # Check StateSpace trait
+            if 'trait StateSpace' in lib_content:
+                trait_score += 2
+                details['statespace_trait'] = True
+            else:
+                details['statespace_trait'] = False
+            # Check Transition/Guard
+            if 'struct Guard' in lib_content or 'trait Transition' in lib_content:
+                trait_score += 2
+                details['transition_trait'] = True
+            else:
+                details['transition_trait'] = False
+        else:
+            details['invariant_trait'] = False
+            details['statespace_trait'] = False
+            details['transition_trait'] = False
+        details['trait_score'] = trait_score
+        score += trait_score
 
+        # Dimension 2: Layered module completeness (6 points)
+        module_score = 0
+        src_dir = framework_dir / "src"
+        modules = {
+            'syntax': 'syntax.rs',
+            'semantic': 'semantic.rs',
+            'pattern': 'pattern.rs',
+            'domain': 'domain.rs'
+        }
+        details['modules'] = {}
+        for name, filename in modules.items():
+            if (src_dir / filename).exists():
+                module_score += 1.5
+                details['modules'][name] = True
+            else:
+                details['modules'][name] = False
+        details['module_score'] = module_score
+        score += module_score
+
+        # Dimension 3: Core functionality implementation (6 points)
+        func_score = 0
+        if lib_rs.exists():
+            lib_content = lib_rs.read_text(encoding='utf-8')
+            # StateSpaceAlgebra / safe/danger zones
+            if 'StateSpaceAlgebra' in lib_content or ('safe' in lib_content.lower() and 'danger' in lib_content.lower()):
+                func_score += 2
+                details['state_algebra'] = True
+            else:
+                details['state_algebra'] = False
+            # Guard mechanism
+            if 'struct Guard' in lib_content or 'fn allows' in lib_content:
+                func_score += 2
+                details['guard_mechanism'] = True
+            else:
+                details['guard_mechanism'] = False
+            # Example implementations (BankAccount, etc.)
+            if 'BankAccount' in lib_content or 'struct' in lib_content:
+                func_score += 2
+                details['example_impl'] = True
+            else:
+                details['example_impl'] = False
+        else:
+            details['state_algebra'] = False
+            details['guard_mechanism'] = False
+            details['example_impl'] = False
+        details['func_score'] = func_score
+        score += func_score
+
+        # Dimension 4: Code quality (6 points)
+        quality_score = 0
+        cargo_toml = framework_dir / "Cargo.toml"
+
+        # cargo check passes (3 points)
+        if cargo_toml.exists():
+            try:
+                result = subprocess.run(
+                    ['cargo', 'check', '--manifest-path', str(framework_dir / 'Cargo.toml')],
+                    capture_output=True,
+                    text=True,
+                    timeout=60
+                )
+                if result.returncode == 0:
+                    quality_score += 3
+                    details['cargo_check'] = True
+                else:
+                    details['cargo_check'] = False
+                    details['cargo_error'] = result.stderr[:200]
+            except Exception as e:
+                details['cargo_check'] = False
+                details['cargo_error'] = str(e)
+        else:
+            details['cargo_check'] = False
+
+        # Code lines >= 500 (3 points)
+        total_lines = 0
+        if src_dir.exists():
+            for rs_file in src_dir.glob('*.rs'):
+                total_lines += len(rs_file.read_text(encoding='utf-8').splitlines())
+        if total_lines >= 500:
+            quality_score += 3
+            details['code_lines'] = total_lines
+            details['code_lines_ok'] = True
+        else:
+            details['code_lines'] = total_lines
+            details['code_lines_ok'] = False
+        details['quality_score'] = quality_score
+        score += quality_score
+
+        # Dimension 5: Tests (6 points)
+        test_score = 0
+        test_count = 0
+
+        # Count #[test] annotations
+        if src_dir.exists():
+            for rs_file in src_dir.glob('*.rs'):
+                content = rs_file.read_text(encoding='utf-8')
+                test_count += content.count('#[test]')
+
+        # Test count >= 5 (3 points)
+        if test_count >= 5:
+            test_score += 3
+            details['test_count'] = test_count
+            details['test_count_ok'] = True
+        else:
+            details['test_count'] = test_count
+            details['test_count_ok'] = False
+
+        # Core principle validation tests (3 points)
+        # Look for tests that verify invariants/guards
+        has_invariant_test = False
+        if src_dir.exists():
+            for rs_file in src_dir.glob('*.rs'):
+                content = rs_file.read_text(encoding='utf-8')
+                if 'invariant' in content.lower() or 'guard' in content.lower():
+                    if '#[test]' in content:
+                        has_invariant_test = True
+                        break
+        if has_invariant_test:
+            test_score += 3
+            details['invariant_test'] = True
+        else:
+            details['invariant_test'] = False
+
+        details['test_score'] = test_score
+        score += test_score
+
+        details['total'] = score
         return {'score': score, 'details': details}
 
     # Step 5.2: Features scoring
@@ -212,7 +350,11 @@ class Evaluator:
 
         results = []
         for direction in directions:
-            result = self.evaluate_direction(direction)
+            # Load detailed data from directions/*.json
+            detail = self.load_direction_detail(direction.get('id', ''))
+            # Merge: detail data overrides plan data
+            merged = {**direction, **detail}
+            result = self.evaluate_direction(merged)
             results.append(result)
 
         return results
