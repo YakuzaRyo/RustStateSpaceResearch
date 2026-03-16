@@ -1,7 +1,7 @@
 {
   "id": "03",
   "direction_name": "工具设计",
-  "priority": 3,
+  "priority": 4,
   "step1_completed": true,
   "status": "pending",
   "priority_rationale": "基于02实现技术的成果，设计'无法产生错误'的工具，直接验证核心问题的实践可行性",

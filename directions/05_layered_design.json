@@ -1,7 +1,7 @@
 {
   "id": "05",
   "direction_name": "分层设计",
-  "priority": 4,
+  "priority": 2,
   "step1_completed": true,
   "step1_priority_order": [
     1,
