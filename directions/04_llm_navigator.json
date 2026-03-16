@@ -1,7 +1,7 @@
 {
   "id": "04",
   "direction_name": "LLM导航器",
-  "priority": 6,
+  "priority": 4,
   "step1_completed": true,
   "status": "pending",
   "priority_rationale": "探索LLM作为状态空间搜索的启发式函数，理论创新性强但实现不确定性较高，作为前沿探索方向放在后期",
@@ -17,5 +17,13 @@
   "code_features": [],
   "test_results": [],
   "context_usage": 0,
-  "total_score": 0
+  "total_score": 0,
+  "priority_analysis": {
+    "01_核心原则": { "priority": 0, "rationale": "直接回答核心问题'让错误在设计上不可能发生'（已完成）" },
+    "05_分层设计": { "priority": 1, "rationale": "Syntax→Semantic→Pattern→Domain转换层次是架构基础" },
+    "02_实现技术": { "priority": 2, "rationale": "Rust类型系统是实现状态空间的具体技术手段" },
+    "03_工具设计": { "priority": 3, "rationale": "设计确保自身不会产生错误的工具" },
+    "04_LLM导航器": { "priority": 4, "rationale": "探索LLM作为启发式函数，理论创新性强但不确定性较高" },
+    "06_对比分析": { "priority": 5, "rationale": "分析现有AI编程工具的缺陷，作为总结性工作" }
+  }
 }
