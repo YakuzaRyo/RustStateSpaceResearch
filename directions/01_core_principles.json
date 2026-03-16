@@ -186,7 +186,6 @@
   "context_usage": 0,
   "total_score": 0,
   "current_step": "step1_priority",
-  "step1_completed": true,
   "step2_completed": false,
   "priority_completed": true,
   "priority_analysis": {
