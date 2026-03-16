@@ -2,6 +2,7 @@
   "id": "01",
   "direction_name": "核心原则",
   "priority": 1,
+  "step1_completed": true,
   "status": "in_progress",
   "priority_rationale": "直接回答核心问题'让错误在设计上不可能发生'，提供整个研究的理论基础",
   "question": "如何让错误在设计上不可能发生?",

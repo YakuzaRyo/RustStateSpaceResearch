@@ -2,6 +2,7 @@
   "id": "02",
   "direction_name": "实现技术",
   "priority": 3,
+  "step1_completed": true,
   "status": "pending",
   "priority_rationale": "将01核心原则的理论成果转化为Rust实现，利用Rust类型系统实现状态空间代数，是连接理论与实践的关键桥梁",
   "question": "如何用Rust类型系统实现状态空间?",
