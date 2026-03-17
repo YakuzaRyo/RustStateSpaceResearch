@@ -1,7 +1,7 @@
 {
   "id": "02",
   "direction_name": "实现技术",
-  "priority": 4,
+  "priority": 3,
   "current_step": "step1_priority",
   "step1_completed": true,
   "priority_analysis": {

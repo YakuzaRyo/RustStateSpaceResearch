@@ -1,7 +1,7 @@
 {
   "id": "04",
   "direction_name": "LLM导航器",
-  "priority": 5,
+  "priority": 4,
   "step1_completed": true,
   "status": "pending",
   "priority_rationale": "探索LLM作为状态空间搜索的启发式函数，理论创新性强但实现不确定性较高，作为前沿探索方向放在后期",

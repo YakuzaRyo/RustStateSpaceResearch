@@ -1,7 +1,7 @@
 {
   "id": "06",
   "direction_name": "对比分析",
-  "priority": 6,
+  "priority": 5,
   "step1_completed": true,
   "status": "pending",
   "priority_rationale": "分析现有AI编程工具的缺陷，为研究方向提供改进参考，作为总结性工作在最后阶段进行",
