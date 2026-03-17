@@ -1,7 +1,7 @@
 {
   "id": "01",
   "direction_name": "核心原则",
-  "priority": 6,
+  "priority": 1,
   "step1_completed": true,
   "status": "in_progress",
   "priority_rationale": "直接回答核心问题'让错误在设计上不可能发生'，提供整个研究的理论基础",
@@ -190,66 +190,66 @@
   "priority_completed": true,
   "step1_directions_ranking": [
     {
+      "id": "01",
+      "name": "核心原则",
+      "priority": 1,
+      "rationale": "直接回答核心问题'让错误在设计上不可能发生'，提供整个研究的理论基础和核心假设，是所有其他方向的基石"
+    },
+    {
       "id": "05",
       "name": "分层设计",
-      "priority": 1,
+      "priority": 2,
       "rationale": "Syntax→Semantic→Pattern→Domain转换层次是架构基础，影响其他方向的设计决策"
     },
     {
       "id": "02",
       "name": "实现技术",
-      "priority": 2,
+      "priority": 3,
       "rationale": "Rust类型系统连接核心原则与实际应用，是验证理论可行性的关键步骤"
     },
     {
       "id": "03",
       "name": "工具设计",
-      "priority": 3,
+      "priority": 4,
       "rationale": "基于实现技术设计工具，验证实践可行性"
     },
     {
       "id": "04",
       "name": "LLM导航器",
-      "priority": 4,
+      "priority": 5,
       "rationale": "前沿探索，理论创新性强但不确定性较高"
     },
     {
       "id": "06",
       "name": "对比分析",
-      "priority": 5,
-      "rationale": "分析现有AI编程工具的缺陷，为研究方向提供改进参考"
-    },
-    {
-      "id": "01",
-      "name": "核心原则",
       "priority": 6,
-      "rationale": "虽然直接回答核心问题，但作为理论基石应在架构确定后再深入"
+      "rationale": "分析现有AI编程工具的缺陷，为研究方向提供改进参考"
     }
   ],
   "priority_analysis": {
-    "05_分层设计": {
+    "01_核心原则": {
       "priority": 1,
+      "rationale": "直接回答核心问题'让错误在设计上不可能发生'，提供整个研究的理论基础和核心假设，是所有其他方向的基石"
+    },
+    "05_分层设计": {
+      "priority": 2,
       "rationale": "Syntax→Semantic→Pattern→Domain转换层次是实现错误不可能发生的架构基础，为整个研究提供架构指导，影响其他方向的设计决策"
     },
     "02_实现技术": {
-      "priority": 2,
+      "priority": 3,
       "rationale": "Rust类型系统是实现状态空间的具体技术手段，连接核心原则理论与实际应用，是验证理论可行性的关键步骤"
     },
     "03_工具设计": {
-      "priority": 3,
+      "priority": 4,
       "rationale": "基于实现技术的成果，设计确保自身不会产生错误的工具，直接验证核心问题在实践中的可行性"
     },
     "04_LLM导航器": {
-      "priority": 4,
+      "priority": 5,
       "rationale": "探索LLM作为状态空间搜索的启发式函数，理论创新性强但实现不确定性较高，作为前沿探索方向放在中期"
     },
     "06_对比分析": {
-      "priority": 5,
-      "rationale": "分析现有AI编程工具的缺陷，为研究方向提供改进参考，作为总结性工作在最后阶段进行"
-    },
-    "01_核心原则": {
       "priority": 6,
-      "rationale": "虽然直接回答核心问题'让错误在设计上不可能发生'，提供理论基础，但作为理论基石应在架构确定后再深入"
+      "rationale": "分析现有AI编程工具的缺陷，为研究方向提供改进参考，作为总结性工作在最后阶段进行"
     }
   }
 }
