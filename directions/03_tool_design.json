@@ -4,7 +4,7 @@
   "priority": 1,
   "step1_completed": true,
   "step1_completed_at": "2026-03-17",
-  "status": "completed",
+  "status": "in_progress",
   "priority_rationale": "基于02实现技术的成果，设计'无法产生错误'的工具，直接验证核心问题的实践可行性",
   "question": "如何设计'无法产生错误'的工具?",
   "topics": [
@@ -198,32 +198,32 @@
   "context_usage": 0,
   "total_score": 0,
   "priority_analysis": {
-    "01_核心原则": {
-      "priority": 1,
-      "rationale": "直接回答核心问题'让错误在设计上不可能发生'，提供整个研究的理论基础和核心假设"
-    },
     "03_工具设计": {
-      "priority": 2,
-      "rationale": "设计确保自身不会产生错误的工具，直接验证核心问题的实践可行性"
+      "priority": 1,
+      "rationale": "当前研究方向，直接验证'让错误在设计上不可能发生'的实践可行性"
     },
     "05_分层设计": {
-      "priority": 3,
-      "rationale": "Syntax→Semantic→Pattern→Domain转换层次是架构基础，为整个研究提供架构指导"
+      "priority": 2,
+      "rationale": "Syntax→Semantic→Pattern→Domain转换层次是架构基础，为整个研究提供层次化指导"
     },
     "02_实现技术": {
-      "priority": 4,
-      "rationale": "Rust类型系统是实现状态空间的具体技术手段，连接核心原则与实际应用"
+      "priority": 3,
+      "rationale": "Rust类型系统是实现状态空间的具体技术手段，将理论转化为可执行代码"
     },
     "04_LLM导航器": {
-      "priority": 5,
+      "priority": 4,
       "rationale": "探索LLM作为启发式函数，理论创新性强但不确定性较高"
     },
     "06_对比分析": {
+      "priority": 5,
+      "rationale": "分析现有AI编程工具的缺陷，为研究方向提供改进参考"
+    },
+    "01_核心原则": {
       "priority": 6,
-      "rationale": "分析现有AI编程工具的缺陷，作为总结性工作"
+      "rationale": "提供整个研究的理论基础和核心假设，是所有其他方向的基石"
     }
   },
-  "current_step": "step5_code",
+  "current_step": "step1_priority",
   "step5_completed": true,
   "step5_completed_at": "2026-03-17",
   "hypothesis_count": 4,
