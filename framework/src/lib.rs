@@ -9,6 +9,12 @@ pub mod pattern;
 pub mod domain;
 pub mod layered;
 
+// 类型安全模块 - 基于验证假设实现
+// h1: 类型系统约束 - 使非法状态不可构造
+// h2: 所有权系统状态转换 - 确保只有有效状态可以转换
+// h3: 状态不变量 - 编译期验证状态不变量
+pub mod type_safe;
+
 pub mod invariant {
     /// Invariant trait - defines properties that must hold throughout state lifecycle
     pub trait Invariant: Clone {
